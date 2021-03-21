@@ -17,27 +17,73 @@ package com.example.androiddevchallenge.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import com.example.androiddevchallenge.R
 
-// Set of Material typography styles to start with
-val typography = Typography(
-    body1 = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Normal,
-        fontSize = 16.sp
+val rajdFamily = FontFamily(
+    listOf(
+        Font(R.font.rajd_regular, FontWeight.Normal, FontStyle.Normal),
+        Font(R.font.rajd_light, FontWeight.Light, FontStyle.Normal),
     )
-        /* Other default text styles to override
-    button = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.W500,
-        fontSize = 14.sp
+)
+
+val orbitronFamily = FontFamily(
+    listOf(
+        Font(R.font.orbitron_regular, FontWeight.Normal, FontStyle.Normal),
+        Font(R.font.orbitron_semibold, FontWeight.Bold, FontStyle.Normal),
+    )
+)
+
+private val defaultTypography = Typography()
+val appTypography = Typography(
+    h1 = defaultTypography.h1.copy(
+        fontFamily = orbitronFamily,
+        fontSize = 28.sp,
+        fontWeight = FontWeight.Bold,
+        letterSpacing = 1.15.sp
     ),
-    caption = TextStyle(
-        fontFamily = FontFamily.Default,
+    h2 = defaultTypography.h2.copy(
+        fontFamily = orbitronFamily,
+        fontSize = 15.sp,
         fontWeight = FontWeight.Normal,
-        fontSize = 12.sp
-    )
-    */
+        letterSpacing = 1.15.sp
+    ),
+    h3 = defaultTypography.h3.copy(
+        fontFamily = orbitronFamily,
+        fontSize = 14.sp,
+        fontWeight = FontWeight.Bold
+    ),
+    h4 = defaultTypography.h4,
+    h5 = defaultTypography.h5,
+    h6 = defaultTypography.h6,
+    subtitle1 = defaultTypography.subtitle1.copy(
+        fontFamily = rajdFamily,
+        fontSize = 16.sp,
+        fontWeight = FontWeight.Normal,
+        letterSpacing = 1.15.sp
+    ),
+    subtitle2 = defaultTypography.subtitle2,
+    body1 = defaultTypography.body1.copy(
+        fontFamily = rajdFamily,
+        fontSize = 14.sp,
+        fontWeight = FontWeight.Normal
+    ),
+    body2 = defaultTypography.body2,
+    button = defaultTypography.button.copy(
+        fontFamily = rajdFamily,
+        fontSize = 14.sp,
+        fontWeight = FontWeight.Bold,
+        letterSpacing = 1.15.sp
+    ),
+    caption = defaultTypography.caption.copy(
+        fontFamily = rajdFamily,
+        fontSize = 12.sp,
+        fontWeight = FontWeight.Normal,
+        letterSpacing = 1.15.sp
+    ),
+    overline = defaultTypography.overline
 )

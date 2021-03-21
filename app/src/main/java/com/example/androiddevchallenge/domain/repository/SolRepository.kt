@@ -17,7 +17,7 @@ object SolRepository {
 
     private val SOL_LATEST = Sol(
         number = 3061,
-        date = "2021-03-17T00:00:00.000Z".toDate(),
+        date = "2021-03-17".toDate(),
         season = "Month 1",
         temperature = SolTemperature(-74, -13),
         pressure = Pressure(837, "Higher"),
@@ -30,7 +30,7 @@ object SolRepository {
         SOL_LATEST,
         Sol(
             number = 3060,
-            date = "2021-03-16T00:00:00.000Z".toDate(),
+            date = "2021-03-16".toDate(),
             season = "Month 1",
             temperature = SolTemperature(-73, -14),
             pressure = Pressure(839, "Higher"),
@@ -40,7 +40,7 @@ object SolRepository {
         ),
         Sol(
             number = 3059,
-            date = "2021-03-15T00:00:00.000Z".toDate(),
+            date = "2021-03-15".toDate(),
             season = "Month 1",
             temperature = SolTemperature(-77, -16),
             pressure = Pressure(836, "Higher"),
@@ -50,7 +50,7 @@ object SolRepository {
         ),
         Sol(
             number = 3058,
-            date = "2021-03-14T00:00:00.000Z".toDate(),
+            date = "2021-03-14".toDate(),
             season = "Month 1",
             temperature = SolTemperature(-73, -15),
             pressure = Pressure(837, "Higher"),
@@ -60,7 +60,7 @@ object SolRepository {
         ),
         Sol(
             number = 3057,
-            date = "2021-03-17T00:00:00.000Z".toDate(),
+            date = "2021-03-17".toDate(),
             season = "Month 1",
             temperature = SolTemperature(-73, -13),
             pressure = Pressure(837, "Higher"),

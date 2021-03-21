@@ -10,4 +10,6 @@
       the License.
       -->
     <string name="app_name">AndroidDevChallenge</string>
+    <string name="temperature_max">MAX</string>
+    <string name="temperature_min">MIN</string>
 </resources>

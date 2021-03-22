@@ -28,6 +28,7 @@ val rajdFamily = FontFamily(
     listOf(
         Font(R.font.rajd_regular, FontWeight.Normal, FontStyle.Normal),
         Font(R.font.rajd_light, FontWeight.Light, FontStyle.Normal),
+        Font(R.font.rajd_bold, FontWeight.Bold, FontStyle.Normal),
     )
 )
 
@@ -35,6 +36,7 @@ val orbitronFamily = FontFamily(
     listOf(
         Font(R.font.orbitron_regular, FontWeight.Normal, FontStyle.Normal),
         Font(R.font.orbitron_semibold, FontWeight.Bold, FontStyle.Normal),
+        Font(R.font.orbitron_medium, FontWeight.Medium, FontStyle.Normal),
     )
 )
 
@@ -42,27 +44,28 @@ private val defaultTypography = Typography()
 val appTypography = Typography(
     h1 = defaultTypography.h1.copy(
         fontFamily = orbitronFamily,
-        fontSize = 28.sp,
-        fontWeight = FontWeight.Bold,
+        fontSize = 20.sp,
+        fontWeight = FontWeight.Medium,
         letterSpacing = 1.15.sp
     ),
     h2 = defaultTypography.h2.copy(
         fontFamily = orbitronFamily,
-        fontSize = 15.sp,
+        fontSize = 13.sp,
         fontWeight = FontWeight.Normal,
         letterSpacing = 1.15.sp
     ),
     h3 = defaultTypography.h3.copy(
-        fontFamily = orbitronFamily,
-        fontSize = 14.sp,
-        fontWeight = FontWeight.Bold
+        fontFamily = rajdFamily,
+        fontSize = 28.sp,
+        fontWeight = FontWeight.Thin,
+        letterSpacing = 1.15.sp
     ),
     h4 = defaultTypography.h4,
     h5 = defaultTypography.h5,
     h6 = defaultTypography.h6,
     subtitle1 = defaultTypography.subtitle1.copy(
-        fontFamily = rajdFamily,
-        fontSize = 16.sp,
+        fontFamily = orbitronFamily,
+        fontSize = 12.sp,
         fontWeight = FontWeight.Normal,
         letterSpacing = 1.15.sp
     ),

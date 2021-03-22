@@ -27,24 +27,33 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun Circle() {
     val transformation = rememberInfiniteTransition()
-    val spec=  infiniteRepeatable<Float>(
-            animation = keyframes {
-                durationMillis = 6000
-            },
-            repeatMode = RepeatMode.Restart
-        )
+    val spec = infiniteRepeatable<Float>(
+        animation = keyframes {
+            durationMillis = 6000
+        },
+        repeatMode = RepeatMode.Restart
+    )
 
 
-    val degree = transformation.animateFloat(initialValue = 0f, targetValue = 360f, animationSpec = spec)
-    Canvas(modifier = Modifier
-        .fillMaxSize()
-        .padding(10.dp)) {
+    val degree =
+        transformation.animateFloat(initialValue = 0f, targetValue = 360f, animationSpec = spec)
+    Canvas(
+        modifier = Modifier
+            .fillMaxSize(0.75f)
+    ) {
         rotate(degree.value) {
-            val path = PathEffect.dashPathEffect(floatArrayOf(size.width / 2, size.width / 4), 3f)
+            val path = PathEffect.dashPathEffect(
+                floatArrayOf(
+                    size.width / 2,
+                    size.width / 2,
+                    size.width / 8,
+                    size.width / 8
+                ), 3f
+            )
             drawCircle(
-                color = Color.White,
+                color = Color(0xFFE9957A),
                 style = Stroke(
-                    width = 3f,
+                    width = 1.3f,
                     pathEffect = path
                 )
             )

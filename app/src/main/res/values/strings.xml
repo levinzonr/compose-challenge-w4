@@ -12,4 +12,6 @@
     <string name="app_name">AndroidDevChallenge</string>
     <string name="temperature_max">MAX</string>
     <string name="temperature_min">MIN</string>
+    <string name="sunrise">Sunrise</string>
+    <string name="sunset">Sunset</string>
 </resources>

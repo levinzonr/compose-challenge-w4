@@ -1,4 +1,4 @@
-package com.example.androiddevchallenge.ui.screens
+package com.example.androiddevchallenge.ui.screens.home.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -10,17 +10,18 @@ import com.example.androiddevchallenge.R
 import com.example.androiddevchallenge.domain.models.Sol
 import com.example.androiddevchallenge.domain.models.SolTemperature
 import com.example.androiddevchallenge.ui.components.WeatherValueComponent
+import com.example.androiddevchallenge.ui.toDegreesString
 
 @Composable
 fun SolTemperature(sol: Sol, modifier: Modifier = Modifier) {
     Row(modifier = modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
         WeatherValueComponent(
             label = stringResource(id = R.string.temperature_max),
-            value = sol.temperature.maxCelsius.toString()
+            value = sol.temperature.maxCelsius.toDegreesString()
         )
         WeatherValueComponent(
             label = stringResource(id = R.string.temperature_min),
-            value = sol.temperature.minCelsius.toString()
+            value = sol.temperature.minCelsius.toDegreesString()
         )
     }
 }

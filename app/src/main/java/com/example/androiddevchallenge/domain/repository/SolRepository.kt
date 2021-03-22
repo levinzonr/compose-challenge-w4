@@ -15,6 +15,8 @@ object SolRepository {
         return SOLS.find { it.number == number }
     }
 
+    fun getAvailableSols() : List<Sol> = SOLS
+
     private val SOL_LATEST = Sol(
         number = 3061,
         date = "2021-03-17".toDate(),

@@ -33,6 +33,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.androiddevchallenge.domain.ImageProvider
+import com.google.accompanist.glide.GlideImage
 import kotlinx.coroutines.channels.TickerMode
 import kotlinx.coroutines.channels.consumeEach
 import kotlinx.coroutines.channels.ticker
@@ -83,7 +84,7 @@ fun LoadableImage(key: String, modifier: Modifier = Modifier, loader: suspend ()
     println("Bitmap ${state.value}")
     state.value?.let {
         Image(
-            bitmap = it.asImageBitmap(),
+            bitmap= it.asImageBitmap(),
             contentDescription = "frame",
             contentScale = ContentScale.Crop,
             modifier = modifier

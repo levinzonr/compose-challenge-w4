@@ -11,7 +11,7 @@ weather conditions for the current day and time as well for other statistical da
 
 ## :bulb: Motivation and Context
 With this app I decided to fantasize for a bit about the weather app for the users of the future,
-which might get a new home planet some day :). The data used by the app is based on the (data gathered by Curiosity Rover)[https://mars.nasa.gov/msl/weather/]
+which might get a new home planet some day :). The data used by the app is based on the [data gathered by Curiosity Rover](https://mars.nasa.gov/msl/weather/)
 
 
 ## :camera_flash: Screenshots

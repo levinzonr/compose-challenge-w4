@@ -10,5 +10,6 @@ data class Sol(
     val sunriseTime: String,
     val sunsetTime: String,
     val atmosphereOpacity: String,
-    val season: String
+    val season: String,
+    val windSpeedKmh: Int = 0
 )

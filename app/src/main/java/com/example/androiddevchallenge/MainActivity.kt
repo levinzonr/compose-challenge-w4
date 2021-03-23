@@ -23,12 +23,14 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.androiddevchallenge.domain.ImageProvider
 import com.example.androiddevchallenge.ui.screens.home.SolScreen
 import com.example.androiddevchallenge.ui.theme.MyTheme
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        ImageProvider.init(this)
         setContent {
             MyTheme {
                 MyApp()

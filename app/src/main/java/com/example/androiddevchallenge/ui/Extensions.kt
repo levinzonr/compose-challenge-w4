@@ -14,3 +14,11 @@ import com.example.androiddevchallenge.R
 @Composable fun Int.toSolString() : String {
     return stringResource(id = R.string.sol, this.toString())
 }
+
+@Composable fun Int.toKmHString() : String {
+    return stringResource(id = R.string.value_wind_speed, this.toString())
+}
+
+@Composable fun Int.toPressureString() : String {
+    return stringResource(id = R.string.value_pressure, this.toString())
+}

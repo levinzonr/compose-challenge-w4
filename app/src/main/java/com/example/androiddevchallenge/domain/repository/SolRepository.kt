@@ -4,6 +4,7 @@ import com.example.androiddevchallenge.domain.models.Pressure
 import com.example.androiddevchallenge.domain.models.Sol
 import com.example.androiddevchallenge.domain.models.SolTemperature
 import com.example.androiddevchallenge.domain.extensions.toDate
+import java.util.*
 
 object SolRepository {
 
@@ -19,13 +20,14 @@ object SolRepository {
 
     private val SOL_LATEST = Sol(
         number = 3061,
-        date = "2021-03-17".toDate(),
+        date = Date(),
         season = "Month 1",
         temperature = SolTemperature(-74, -13),
         pressure = Pressure(837, "Higher"),
         atmosphereOpacity = "Sunny",
         sunriseTime = "6:31",
-        sunsetTime = "18:26"
+        sunsetTime = "18:26",
+        windSpeedKmh = 25
     )
 
     private val SOLS = listOf(
@@ -34,7 +36,7 @@ object SolRepository {
             number = 3060,
             date = "2021-03-16".toDate(),
             season = "Month 1",
-            temperature = SolTemperature(-73, -14),
+            temperature = SolTemperature(-73, -14, -54),
             pressure = Pressure(839, "Higher"),
             atmosphereOpacity = "Sunny",
             sunriseTime = "6:31",

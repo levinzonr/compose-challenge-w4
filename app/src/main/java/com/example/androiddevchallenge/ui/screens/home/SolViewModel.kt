@@ -9,14 +9,15 @@ import kotlinx.coroutines.flow.MutableStateFlow
 
 class SolViewModel : ViewModel()  {
 
-    private val _state = MutableLiveData(SolViewState(selectedSol = SolRepository.getLatestSol()))
+    private val _state = MutableLiveData(SolViewState(latestSol = SolRepository.getLatestSol()))
     val viewState: LiveData<SolViewState> get() = _state
 
     init {
         val sols = SolRepository.getAvailableSols()
         _state.value = SolViewState(
             sols = sols,
-            selectedSol = SolRepository.getLatestSol()
+            selectedSol = SolRepository.getLatestSol(),
+            latestSol = SolRepository.getLatestSol()
         )
     }
 

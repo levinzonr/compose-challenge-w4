@@ -14,6 +14,7 @@ import androidx.compose.ui.graphics.PathEffect
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.drawscope.rotate
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.androiddevchallenge.ui.animations.rotationAnimation
 
 @Composable
 fun AnimatedDashedCircle(
@@ -21,20 +22,11 @@ fun AnimatedDashedCircle(
     color: Color = MaterialTheme.colors.secondary
 ) {
     val transformation = rememberInfiniteTransition()
-    val spec = infiniteRepeatable<Float>(
-        animation = keyframes {
-            durationMillis = 6000
-        },
-        repeatMode = RepeatMode.Restart
-    )
-
-
-    val degree =
-        transformation.animateFloat(initialValue = 0f, targetValue = 360f, animationSpec = spec)
+    val degreeState = transformation.rotationAnimation(targetValue = 360f)
     Canvas(
         modifier = modifier
     ) {
-        rotate(degree.value) {
+        rotate(degreeState.value) {
             val path = PathEffect.dashPathEffect(
                 floatArrayOf(
                     size.width / 2,

@@ -16,5 +16,11 @@
     <string name="sunset">Sunset</string>
     <string name="sol">SOL %1$s"</string>
     <string name="degrees_celsius">%1$s °C"</string>
+    <string name="kmh">%1$s km/h</string>
+    <string name="value_wind_speed">%1$s km/h</string>
+    <string name="wind_speed">Wind Speed</string>
+    <string name="pressure">Pressure</string>
+    <string name="value_pressure">%1$s Pa</string>
+    <string name="header">Weather at ColonyX</string>
 
 </resources>

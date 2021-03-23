@@ -4,5 +4,6 @@ import com.example.androiddevchallenge.domain.models.Sol
 
 data class SolViewState(
     val sols: List<Sol> = listOf(),
-    val selectedSol: Sol,
+    val latestSol: Sol,
+    val selectedSol: Sol = latestSol
 )

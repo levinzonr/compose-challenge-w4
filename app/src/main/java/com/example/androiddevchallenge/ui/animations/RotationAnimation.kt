@@ -26,7 +26,7 @@ import androidx.compose.runtime.State
 @Composable
 fun InfiniteTransition.rotationAnimation(durationMs: Int = 6000, targetValue: Float): State<Float> {
     val spec = infiniteRepeatable<Float>(
-        animation = keyframes { durationMillis = 6000 },
+        animation = keyframes { durationMillis = durationMs },
         repeatMode = RepeatMode.Restart
     )
     return animateFloat(

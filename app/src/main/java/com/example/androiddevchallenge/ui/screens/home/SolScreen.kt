@@ -58,7 +58,9 @@ fun SolScreen(viewModel: SolViewModel) {
                     .padding(top = 32.dp)
                     .padding(horizontal = 8.dp),
                 current = state.value?.selectedSol,
-                onSolNumberSelected = { viewModel.onSolNumberSelected(it) }
+                onSolNumberSelected = {
+                    viewModel.onSolNumberSelected(it)
+                }
             )
         }
     ) {
@@ -68,7 +70,6 @@ fun SolScreen(viewModel: SolViewModel) {
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
             ) {
-
                 if (sol == state.value?.latestSol) {
                     LatestSol(sol = sol)
                 } else {
@@ -107,7 +108,11 @@ private fun ColumnScope.PreviousSol(sol: Sol) {
         sol = sol,
         modifier = Modifier.padding(horizontal = 32.dp)
     )
-    MarsGlobeComponent(modifier = Modifier.fillMaxWidth(0.7f).aspectRatio(1f))
+    MarsGlobeComponent(
+        modifier = Modifier
+            .fillMaxWidth(0.7f)
+            .aspectRatio(1f)
+    )
     SolSunsetSunrise(
         sol,
         modifier = Modifier.padding(horizontal = 32.dp)

@@ -48,7 +48,7 @@ fun SolCurrentTemperatureComponent(sol: Sol, modifier: Modifier = Modifier) {
                 style = MaterialTheme.typography.h3.copy(fontSize = 86.sp)
             )
             Text(
-                text = "Sunny",
+                text = sol.atmosphereOpacity,
                 style = MaterialTheme.typography.subtitle1.copy(fontSize = 24.sp),
                 color = MaterialTheme.colors.secondary
             )

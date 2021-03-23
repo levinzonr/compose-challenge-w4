@@ -1,17 +1,17 @@
-# Put title of your app here
+# ColonyX Weather
 
 <!--- Replace <OWNER> with your Github Username and <REPOSITORY> with the name of your repository. -->
 <!--- You can find both of these in the url bar when you open your repository in github. -->
-![Workflow result](https://github.com/<OWNER>/<REPOSITORY>/workflows/Check/badge.svg)
+![Workflow result](https://github.com/levinzonr/compose-challenge-w4/workflows/Check/badge.svg)
 
 
 ## :scroll: Description
-<!--- Describe your app in one or two sentences -->
-
+ColonyX Weather provides a weather data for a remote Mars colony named ColonyX. The application provides current
+weather conditions for the current day and time as well for other statistical data for previous sols
 
 ## :bulb: Motivation and Context
-<!--- Optionally point readers to interesting parts of your submission. -->
-<!--- What are you especially proud of? -->
+With this app I decided to fantasize for a bit about the weather app for the users of the future,
+which might get a new home planet some day :). The data used by the app is based on the (data gathered by Curiosity Rover)[https://mars.nasa.gov/msl/weather/]
 
 
 ## :camera_flash: Screenshots

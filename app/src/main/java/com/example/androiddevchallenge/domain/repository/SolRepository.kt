@@ -16,15 +16,30 @@
 package com.example.androiddevchallenge.domain.repository
 
 import com.example.androiddevchallenge.domain.extensions.toDate
+import com.example.androiddevchallenge.domain.models.DayForecast
 import com.example.androiddevchallenge.domain.models.Pressure
 import com.example.androiddevchallenge.domain.models.Sol
 import com.example.androiddevchallenge.domain.models.SolTemperature
 import java.util.Date
+import kotlin.random.Random
 
 object SolRepository {
 
+    private const val DAY_MS = 86_400_000
+
     fun getLatestSol(): Sol {
         return SOL_LATEST
+    }
+
+    fun getForecast(): List<DayForecast> {
+        return List(7) {
+            DayForecast(
+                temperature = SOLS.random().temperature,
+                windSpeed = Random.nextInt(25, 56),
+                number = 3061 + it.inc(),
+                date = Date().apply { time += it.inc() * DAY_MS }
+            )
+        }
     }
 
     fun getSolByNumber(number: Int): Sol? {

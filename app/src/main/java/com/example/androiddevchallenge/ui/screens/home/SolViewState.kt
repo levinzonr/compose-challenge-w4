@@ -15,10 +15,13 @@
  */
 package com.example.androiddevchallenge.ui.screens.home
 
+import com.example.androiddevchallenge.domain.models.DayForecast
 import com.example.androiddevchallenge.domain.models.Sol
+import com.example.androiddevchallenge.ui.screens.home.components.SolPage
 
 data class SolViewState(
-    val sols: List<Sol> = listOf(),
+    val sols: List<SolPage> = listOf(),
+    val forecast: List<DayForecast> = listOf(),
     val latestSol: Sol,
-    val selectedSol: Sol = latestSol
+    val selectedSol: SolPage = SolPage.SolHeader(latestSol)
 )

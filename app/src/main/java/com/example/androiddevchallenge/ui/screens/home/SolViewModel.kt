@@ -19,6 +19,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.androiddevchallenge.domain.repository.SolRepository
+import com.example.androiddevchallenge.ui.screens.home.components.SolPage
 
 class SolViewModel : ViewModel() {
 
@@ -28,15 +29,17 @@ class SolViewModel : ViewModel() {
     init {
         val sols = SolRepository.getAvailableSols()
         _state.value = SolViewState(
-            sols = sols,
-            selectedSol = SolRepository.getLatestSol(),
+            forecast = SolRepository.getForecast(),
+            sols = sols.map { SolPage.SolHeader(it) }.toMutableList<SolPage>().apply { add(SolPage.Forecast) },
+            selectedSol = SolPage.SolHeader(SolRepository.getLatestSol()),
             latestSol = SolRepository.getLatestSol()
         )
     }
 
     fun onSolNumberSelected(number: Int) {
-        SolRepository.getSolByNumber(number)?.let {
-            _state.value = _state.value?.copy(selectedSol = it)
+        SolRepository.getSolByNumber(number).let {
+            val model = it?.let { SolPage.SolHeader(it) } ?: SolPage.Forecast
+            _state.value = _state.value?.copy(selectedSol = model)
         }
     }
 }

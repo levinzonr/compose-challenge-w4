@@ -31,10 +31,15 @@ import com.example.androiddevchallenge.domain.repository.SolRepository
 import com.example.androiddevchallenge.ui.theme.MyTheme
 import com.example.androiddevchallenge.ui.toSolString
 
+sealed class SolPage(val id: Int) {
+    object Forecast : SolPage(-1)
+    data class SolHeader(val sol: Sol) : SolPage(sol.number)
+}
+
 @Composable
 fun SolMenuComponent(
-    items: List<Sol>,
-    current: Sol?,
+    items: List<SolPage>,
+    current: SolPage?,
     modifier: Modifier = Modifier,
     onSolNumberSelected: (Int) -> Unit = {}
 ) {
@@ -73,34 +78,36 @@ fun SolMenuComponent(
             }
 
             previous?.let {
-                SolHeader(
-                    sol = it,
+                SolMenuModel(
+                    model = it,
                     active = false,
                     modifier = firstConstraint.clickable {
-                        onSolNumberSelected.invoke(it.number)
+                        onSolNumberSelected.invoke(it.id)
                     }
                 )
             }
 
-            SolHeader(
-                sol = items.first { it == current },
+            SolMenuModel(
+                model = items.first { it == current },
                 active = true,
                 modifier = currentConstraint
             )
 
-            Text(
-                text = items.first { it == current }.date.format(),
-                modifier = dateConstrain,
-                color = MaterialTheme.colors.secondary,
-                style = MaterialTheme.typography.subtitle1
-            )
+            if (current is SolPage.SolHeader) {
+                Text(
+                    text = current.sol.date.format(),
+                    modifier = dateConstrain,
+                    color = MaterialTheme.colors.secondary,
+                    style = MaterialTheme.typography.subtitle1
+                )
+            }
 
             next?.let {
-                SolHeader(
-                    sol = it,
+                SolMenuModel(
+                    model = it,
                     active = false,
                     modifier = nextConstraint.clickable {
-                        onSolNumberSelected.invoke(it.number)
+                        onSolNumberSelected.invoke(it.id)
                     }
                 )
             }
@@ -109,9 +116,13 @@ fun SolMenuComponent(
 }
 
 @Composable
-fun SolHeader(sol: Sol, active: Boolean, modifier: Modifier = Modifier) {
+fun SolMenuModel(model: SolPage, active: Boolean, modifier: Modifier = Modifier) {
+    val text = when (model) {
+        is SolPage.Forecast -> "Forecast"
+        is SolPage.SolHeader -> model.sol.number.toSolString()
+    }
     Text(
-        text = sol.number.toSolString(),
+        text = text,
         color = if (active) MaterialTheme.colors.primary else MaterialTheme.colors.secondary,
         style = if (active) MaterialTheme.typography.h1 else MaterialTheme.typography.h2,
         modifier = modifier
@@ -123,6 +134,6 @@ fun SolHeader(sol: Sol, active: Boolean, modifier: Modifier = Modifier) {
 fun PreviewSolMenuComponent() {
     val items = SolRepository.getAvailableSols()
     MyTheme {
-        SolMenuComponent(items = items, current = items.last())
+        SolMenuComponent(items = items.map { SolPage.SolHeader(it) }, current = SolPage.SolHeader(items.last()))
     }
 }

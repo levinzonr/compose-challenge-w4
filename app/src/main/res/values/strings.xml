@@ -21,6 +21,7 @@
     <string name="wind_speed">Wind Speed</string>
     <string name="pressure">Pressure</string>
     <string name="value_pressure">%1$s Pa</string>
-    <string name="header">Weather at ColonyX</string>
+    <string name="header">Today at ColonyX</string>
+    <string name="warning">75% chance of wind storms tommorrow</string>
 
 </resources>

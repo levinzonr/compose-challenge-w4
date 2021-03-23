@@ -7,7 +7,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.androiddevchallenge.ui.theme.marsLight
 
 @Composable
 fun WeatherValueComponent(label: String, value: String, modifier: Modifier = Modifier) {
@@ -19,7 +18,7 @@ fun WeatherValueComponent(label: String, value: String, modifier: Modifier = Mod
         Text(
             text = label,
             style = MaterialTheme.typography.subtitle1,
-            color = marsLight
+            color = MaterialTheme.colors.secondary
         )
     }
 }

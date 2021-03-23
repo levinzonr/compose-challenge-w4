@@ -6,9 +6,11 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import com.example.androiddevchallenge.R
 import com.example.androiddevchallenge.domain.models.Sol
 import com.example.androiddevchallenge.domain.models.SolTemperature
+import com.example.androiddevchallenge.domain.repository.SolRepository
 import com.example.androiddevchallenge.ui.components.WeatherValueComponent
 import com.example.androiddevchallenge.ui.toDegreesString
 
@@ -24,4 +26,10 @@ fun SolTemperature(sol: Sol, modifier: Modifier = Modifier) {
             value = sol.temperature.minCelsius.toDegreesString()
         )
     }
+}
+
+@Preview
+@Composable
+fun PreviewSolTemperature() {
+    SolTemperature(sol = SolRepository.getLatestSol())
 }

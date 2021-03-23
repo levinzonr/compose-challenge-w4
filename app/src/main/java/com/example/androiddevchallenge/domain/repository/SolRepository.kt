@@ -15,7 +15,7 @@ object SolRepository {
         return SOLS.find { it.number == number }
     }
 
-    fun getAvailableSols() : List<Sol> = SOLS
+    fun getAvailableSols() : List<Sol> = SOLS.sortedBy { it.number }
 
     private val SOL_LATEST = Sol(
         number = 3061,
@@ -62,7 +62,7 @@ object SolRepository {
         ),
         Sol(
             number = 3057,
-            date = "2021-03-17".toDate(),
+            date = "2021-03-13".toDate(),
             season = "Month 1",
             temperature = SolTemperature(-73, -13),
             pressure = Pressure(837, "Higher"),

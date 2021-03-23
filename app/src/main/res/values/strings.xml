@@ -14,4 +14,7 @@
     <string name="temperature_min">MIN</string>
     <string name="sunrise">Sunrise</string>
     <string name="sunset">Sunset</string>
+    <string name="sol">SOL %1$s"</string>
+    <string name="degrees_celsius">%1$s °C"</string>
+
 </resources>

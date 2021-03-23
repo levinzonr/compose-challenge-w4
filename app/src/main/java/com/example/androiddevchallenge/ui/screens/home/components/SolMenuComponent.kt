@@ -13,24 +13,26 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.example.androiddevchallenge.domain.extensions.format
+import com.example.androiddevchallenge.domain.extensions.nextAfter
+import com.example.androiddevchallenge.domain.extensions.previousBefore
 import com.example.androiddevchallenge.domain.models.Pressure
 import com.example.androiddevchallenge.domain.models.Sol
+import com.example.androiddevchallenge.domain.repository.SolRepository
 import com.example.androiddevchallenge.ui.theme.MyTheme
-import com.example.androiddevchallenge.ui.theme.marsLight
 import com.example.androiddevchallenge.ui.toSolString
 import java.util.*
 
 @Composable
 fun SolMenuComponent(
     items: List<Sol>,
+    current: Sol?,
     modifier: Modifier = Modifier,
-    current: Int = 0,
-    onSolNumberSelected: (Int) -> Unit
+    onSolNumberSelected: (Int) -> Unit = {}
 ) {
 
-    if (items.isNotEmpty()) {
-        val next = items.find { it.number == current.inc() }
-        val previous = items.find { it.number == current.dec() }
+    if (items.isNotEmpty() && current != null) {
+        val next = items.nextAfter(current)
+        val previous = items.previousBefore(current)
         ConstraintLayout(
             modifier = modifier.fillMaxWidth()
         ) {
@@ -72,15 +74,15 @@ fun SolMenuComponent(
 
 
             SolHeader(
-                sol = items.first { it.number == current },
+                sol = items.first { it == current },
                 active = true,
                 modifier = currentConstraint
             )
 
             Text(
-                text = items.first { it.number == current }.date.format(),
+                text = items.first { it == current }.date.format(),
                 modifier = dateConstrain,
-                color = marsLight,
+                color = MaterialTheme.colors.secondary,
                 style = MaterialTheme.typography.subtitle1
             )
 
@@ -101,7 +103,7 @@ fun SolMenuComponent(
 fun SolHeader(sol: Sol, active: Boolean, modifier: Modifier = Modifier) {
     Text(
         text = sol.number.toSolString(),
-        color = if (active) Color.White else marsLight,
+        color = if (active) MaterialTheme.colors.primary else MaterialTheme.colors.secondary,
         style = if (active) MaterialTheme.typography.h1 else MaterialTheme.typography.h2,
         modifier = modifier
     )
@@ -110,20 +112,8 @@ fun SolHeader(sol: Sol, active: Boolean, modifier: Modifier = Modifier) {
 @Preview
 @Composable
 fun PreviewSolMenuComponent() {
+    val items = SolRepository.getAvailableSols()
     MyTheme {
-        SolMenuComponent(items = List(10) {
-            Sol(
-                it + 1000,
-                Date(),
-                com.example.androiddevchallenge.domain.models.SolTemperature(0, 0),
-                Pressure(100, ""),
-                "",
-                "",
-                "",
-                ""
-            )
-        }) {
-
-        }
+        SolMenuComponent(items = items, current = items.last())
     }
 }

@@ -13,6 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.androiddevchallenge.ui.components.MarsGlobeComponent
 import com.example.androiddevchallenge.ui.screens.home.components.SolMenuComponent
 import com.example.androiddevchallenge.ui.screens.home.components.SolSunsetSunrise
@@ -28,7 +29,7 @@ fun SolScreen(viewModel: SolViewModel) {
                 modifier = Modifier
                     .padding(top = 32.dp)
                     .padding(horizontal = 8.dp),
-                current = state.value?.selectedSol?.number ?: 0,
+                current = state.value?.selectedSol,
                 onSolNumberSelected = { viewModel.onSolNumberSelected(it) }
             )
         }
@@ -63,5 +64,5 @@ fun SolScreen(viewModel: SolViewModel) {
 @Preview
 @Composable
 fun PreviewSolScreen() {
-
+    SolScreen(viewModel = viewModel())
 }

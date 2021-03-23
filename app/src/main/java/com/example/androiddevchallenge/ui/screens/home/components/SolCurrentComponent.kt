@@ -44,7 +44,7 @@ fun SolCurrentTemperatureComponent(sol: Sol, modifier: Modifier = Modifier) {
             verticalArrangement = Arrangement.Center
         ) {
             Text(
-                text = 22.toDegreesString(),
+                text = sol.temperature.currentCelsius.toDegreesString(),
                 style = MaterialTheme.typography.h3.copy(fontSize = 86.sp)
             )
             Text(

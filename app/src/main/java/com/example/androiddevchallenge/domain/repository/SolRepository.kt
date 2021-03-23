@@ -37,7 +37,7 @@ object SolRepository {
         number = 3061,
         date = Date(),
         season = "Month 1",
-        temperature = SolTemperature(-74, -13),
+        temperature = SolTemperature(-74, -13, -54),
         pressure = Pressure(837, "Higher"),
         atmosphereOpacity = "Sunny",
         sunriseTime = "6:31",

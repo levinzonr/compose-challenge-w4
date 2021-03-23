@@ -19,4 +19,4 @@ import androidx.compose.ui.graphics.Color
 
 val white = Color.White
 val black = Color.Black
-val redLight =  Color(0xFFE9957A)
+val redLight = Color(0xFFE9957A)
